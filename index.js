@@ -69,7 +69,7 @@ require("dotenv").config();
 require("./config/passport");
 const passportLib = require("passport");
 
-const response = require("../middleware/response");
+const response = require("./middleware/response");
 
 const app = express();
 
@@ -116,11 +116,11 @@ app.use(async (req, res, next) => {
 });
 
 /* -------------------- Routes -------------------- */
-app.use("/api/auth", require("../routes/auth"));
-app.use("/api/doctor", require("../routes/doctor"));
-app.use("/api/patient", require("../routes/patient"));
-app.use("/api/appointment", require("../routes/appointment"));
-app.use("/api/payment", require("../routes/payment"));
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/doctor", require("./routes/doctor"));
+app.use("/api/patient", require("./routes/patient"));
+app.use("/api/appointment", require("./routes/appointment"));
+app.use("/api/payment", require("./routes/payment"));
 
 app.get("/health", (req, res) =>
   res.ok({ time: new Date().toISOString() }, "OK")

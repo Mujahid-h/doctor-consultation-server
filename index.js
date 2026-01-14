@@ -66,7 +66,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 require("dotenv").config();
-require("../config/passport");
+require("./config/passport");
 const passportLib = require("passport");
 
 const response = require("../middleware/response");

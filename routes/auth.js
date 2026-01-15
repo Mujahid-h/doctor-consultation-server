@@ -131,7 +131,8 @@ router.get(
 
       //Redirect to frontend with token
       const frontendUrl = process.env.FRONTEND_URL || "http://localhost:3000";
-      const redirectUrl = `${frontendUrl}/success?token=${token}&type=${type}&user=${encodeURIComponent(
+      // URL-encode the token to handle special characters properly
+      const redirectUrl = `${frontendUrl}/success?token=${encodeURIComponent(token)}&type=${type}&user=${encodeURIComponent(
         JSON.stringify({
           id: user._id,
           name: user.name,
